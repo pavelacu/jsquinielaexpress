@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3001;
 
 app.use(express.static(__dirname + '/public/'));
 
-app.listen('3000', function() {
-  console.log('Servidor web escuchando en el puerto 3000');
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
