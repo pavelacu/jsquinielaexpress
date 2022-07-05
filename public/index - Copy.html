@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>    
+	<style>
+	
+		* {
+		  box-sizing: border-box;
+		}
+
+		/* Create two equal columns that floats next to each other */
+		.column {
+		  float: left;
+		  width: 50%;
+		  padding: 10px;
+		  height: 300px; /* Should be removed. Only for demonstration */
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+		input[type=text] {		  
+		  padding: 5px 5px;
+		  margin: 8px 0;
+		  box-sizing: border-box;
+		}
+		
+		.label1 {
+			
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		
+		.table1 {
+			border-collapse: collapse;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.table1 td {
+			padding: 10px;
+		}
+		.table1 thead td {						
+			font-weight: bold;
+			font-size: 13px;
+			
+		}
+		.table1 tbody td {
+			color: #636363;
+			
+		}
+		.table2 {
+			border-collapse: collapse;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.table2 td {
+			padding: 12px;
+		}
+		.table2 thead td {
+			background-color: #54585d;
+			color: #ffffff;
+			font-weight: bold;
+			font-size: 13px;
+			border: 1px solid #54585d;
+		}
+		.table2 tbody td {
+			color: #636363;
+			border: 1px solid #dddfe1;
+			text-align: center;
+		}
+		.table2 tbody tr {
+			background-color: #f9fafb;
+		}
+		.table2 tbody tr:nth-child(odd) {
+			background-color: #ffffff;
+		}
+		.button {
+		  background-color: #4CAF50; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		}
+		.button1 {
+		   background-color: #4CAF50; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 10px 24px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 10px;
+		  border-radius: 4px;
+		} /* Green */
+		
+		.button2 {
+		   background-color: #008CBA;/* Blue */
+		  border: none;
+		  color: white;
+		  padding: 10px 24px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 10px;
+		  border-radius: 4px;
+		} /* Green */
+		
+	</style>
+	
+	<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">	
+  </head>
+  <body>
+    <main>
+        <h1>Welcome to My Website</h1>  
+    </main>	
+	
+	<table id="tableTeam" name="tableTeam" class="table1">
+    <thead>
+        <tr>
+            <th>Local</th>
+			<th>Visitante</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" name="local" id="local" class="input-default"></td>
+			<td><input type="text" name="visit" id="visit" class="input-default"></td>
+        </tr>
+    </tbody>   
+	</table>	
+	<br/><br/>
+	
+	<div class="row">
+  <div class="column">
+	
+    <label class="label1">Ingresa participante: </label>
+    <input type="text" name="participant" id="participant" class="input-default"> 
+    <button type="button" onclick="add()" class="button2">Agregar</button>
+    <!-- This is the textbox-->    
+	<br/><br/>
+	<table id="myTable" name="myTable" class="table1">
+    <thead>
+        <tr>
+            <th>Participantes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+        </tr>
+    </tbody>   
+	</table>
+<br/>
+	<button type="button" onclick="getListShuffle()" class="button1">Sortear</button>
+	
+	</div>
+  <div class="column">
+	<table id="myTableSort" name ="myTableSort" class="table2"> 
+	<thead>
+		<tr>
+            <td>Resultado</td>
+			<td>Participantes</td>
+		</tr>
+	</thead>
+    <tbody>
+        <tr>
+            <td></td>
+			<td></td>
+		</tr>
+    </tbody>   
+	</table>
+</div>
+</div>	
+	<script src="js/randomlist.js"></script>
+	
+	
+	
+  </body>
+</html>

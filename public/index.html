@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>    
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="javascript" src="js/bootstrap.min.js"></script>
+	<!--script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script-->	
+	<script type="text/javascript" src="js/html2canvas.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+  <br/><br/>
+	<div class="row">
+		<main>
+			<!-- h1>Welcome to QuinielaExpress</h1-->  
+		</main>
+	</div>	
+	<br/><br/>
+	<div class="row">
+		<div class="row">
+			<div class="col">
+			  <input type="text" class="form-control" placeholder="Equipo Local" name="local" id="local">
+			</div>
+			<div class="col">
+			  <input type="text" class="form-control" placeholder="Equipo Visitante" name="visit" id="visit">
+			</div>
+		  </div>
+	</div>
+	<br/>
+	<div class="row" id ="messageDuplicate">
+			
+	</div>
+	<br/>
+	<div class="row">
+		
+		<div class="row">
+			<div class="col">		
+				<input type="text" name="participant" id="participant" class="form-control" placeholder="Ingresa Participante" title="Enter add new Participant" style =" width: 200px;" data-placement="top"> 				
+			</div>			
+			<div class="col">					
+				<button type="button" onclick="add()" class="btn btn-primary">+</button>
+			</div>			
+		</div>
+	</div>
+		<br/><br/>
+		
+	<div class="row">
+		<div class="col-sm-4 col-sm-push-8">	
+			<table id="myTable" name="myTable" class="table1">
+				<thead>
+					<tr>
+						<th>Participantes</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>   
+			</table>
+			<br/>
+			<button type="button" onclick="getListShuffle()" class="btn btn-info" >Sortear</button>
+			</div>
+			
+			<div id="resultsFrame" class="col-md-6 col-md-3">
+				<div id="result">
+					<table id="myTableSort" name ="myTableSort" class="table table-striped"> 
+						<thead>
+							<tr>
+								<th>Resultado</th>
+								<th>Participantes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>   
+					</table>
+					<br/>
+						<label id="labelDate"></label>
+					<br/>
+				</div>
+			<div class="row">		
+				<button type="button" onclick="exportImage()" class="btn btn-info" >Guardar</button>				
+			</div>
+			
+			</div>			
+	</div>
+	
+	<script src="js/randomlist.js"></script>
+	</div>
+</div>
+	
+  </body>
+</html>
