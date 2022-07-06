@@ -30,21 +30,22 @@ function shuffle(array) {
   return array;
 }
 
+
 function getListShuffle() {
 	cleanTable()
-	setHeadTable() 
-	let arraysort = shuffle(arrayparticipants)		
-	for (var i = 0; i < arraysort.length; i++) {
-			addRowResult(arrayresults[i],arraysort[i]);
-	}	
-	showDate();
-	
+	if(setHeadTable()){
+		let arraysort = shuffle(arrayparticipants)		
+		for (var i = 0; i < arraysort.length; i++) {
+				addRowResult(arrayresults[i],arraysort[i]);
+		}	
+		showDate();
+	}
 }
 
 function showDate(){
 	var label = document.getElementById("labelDate")
 	var now = new Date();
-	console.log(navigator.languages);
+	//console.log(navigator.languages);
 	label.innerHTML = now.toLocaleString();
 }
 
@@ -55,20 +56,21 @@ function cleanTable(){
 	tableh.innerHTML = "";
 }
 
-function showMessage(message){
-	var message = document.getElementById("messageDuplicate")
-	message.innerHTML = "<div class=\"alert alert-warning\"><strong>Precaucion!</strong>"+message+"</div>";	
+function showMessage(htmldiv, message){
+	var messageHtml = document.getElementById(htmldiv)	
+	var textHtml = "<div class=\"alert alert-warning\"><strong>Precaucion!</strong> "+message+"</div>";			
+	messageHtml.innerHTML = textHtml;	
 }
 
 
-function cleanMessage(){
-	var table = document.getElementById("messageDuplicate")
+function cleanMessage(htmlDiv){
+	var table = document.getElementById(htmlDiv)
 	table.innerHTML = "";	
 }
 
 function add() {
 
-	cleanMessage()
+	cleanMessage("messageDuplicate")
     var participant = document.getElementById("participant").value;
 	if (participant){
 		if (exists(arrayparticipants,participant)=== false){
@@ -77,14 +79,14 @@ function add() {
 			document.getElementById("participant").value = '';
 		}else{
 			console.log('Ya existe')
-			showMessage("El participante ya existe.")
+			showMessage("messageDuplicate","El participante ya existe.")
 			
 		}		
     }	 
 }
 
 function exportImage(){
-	 html2canvas(document.querySelector("#result")).then(canvas => {
+	 html2canvas(document.querySelector("#divresults")).then(canvas => {
 		//document.body.appendChild(canvas)
 		var a = document.createElement('a');
 				a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
@@ -148,14 +150,22 @@ function removeRowParticipant(name) {
 }
 
 function setHeadTable() {
-  var table = document.getElementById("myTableSort");
-  var header = table.createTHead();
-  var row = header.insertRow(0);
-  var cell1 = row.insertCell(0);  
-  var cell2 = row.insertCell(1);
   var local = document.getElementById("local").value;
   var visit = document.getElementById("visit").value;
-  
-  cell1.innerHTML ='<b>'+ local +' vs. '+visit+'</b>';  
-  cell2.innerHTML = '<b>Participant</b>';
+  cleanMessage("messageTeams")
+  if(local && visit){
+		var table = document.getElementById("myTableSort");
+		var header = table.createTHead();		
+		var row = header.insertRow(0);
+		var cell1 = row.insertCell(0);  
+		var cell2 = row.insertCell(1);	
+	    var htmltitle1 = local +" vs. "+visit;	  
+		cell1.innerText = htmltitle1;
+		cell2.innerText = 'Participante';
+
+  }else{
+	  showMessage("messageTeams","Ingresa los equipos")
+	  return false;
+  }
+  return true;
 }
