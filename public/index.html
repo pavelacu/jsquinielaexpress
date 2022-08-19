@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
 
     <!-- Fonts -->
-    <link href="css/S6uyw4BMUTPHjx4wXg.woff2" rel="stylesheet">
-	<link href="css/1551518053.woff" rel="stylesheet">
+    <link href="css/S6uyw4BMUTPHjx4wXg.woff2" rel="font/woff" >
+	<link href="css/1551518053.woff" rel="font/woff" >
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.min.css">
@@ -31,6 +31,45 @@
 		  text-align: center;
 		  font-weight: bold;
 	   }
+	.loader {
+		  width: 48px;
+		  height: 48px;
+		  border: 2px solid #FFF;
+		  border-radius: 50%;
+		  display: inline-block;
+		  position: relative;
+		  box-sizing: border-box;
+		  animation: rotation 1s linear infinite;
+		}
+		.loader::after,
+		.loader::before {
+		  content: '';  
+		  box-sizing: border-box;
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  background: #FF3D00;
+		  width: 6px;
+		  height: 6px;
+		  transform: translate(150%, 150%);
+		  border-radius: 50%;
+		}
+		.loader::before {
+		  left: auto;
+		  top: auto;
+		  right: 0;
+		  bottom: 0;
+		  transform: translate(-150%, -150%);
+		}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
    </style>
 
 </head>
@@ -56,7 +95,8 @@
         </div>
     </div>
     
-</nav>		<div class="jumbotron d-flex align-items-center" style="background-image: url(img/white-soccer.jpg)">
+</nav>		
+<div class="jumbotron d-flex align-items-center" style="background-image: url(img/white-soccer.jpg)">
   <div class="container text-center">
     <h1 class="display-2 mb-4">Quiniela Express!</h1>
     <p>
@@ -69,15 +109,24 @@
     <div class="container">
         <div class="section-content">
              <!-- Section Title -->
-            <div class="title-wrap">
-                <h2 class="section-title">Invitame un cafe</h2>
-                <p class="section-sub-title">Desarrollamos aplicaciones de uso libre para apoyar a la comunidad. <br> El cafe es el combustible de un programador.</p>
+            <div class="title-wrap">                
+				<p class="section-sub-title">Desarrollamos aplicaciones de uso libre para apoyar a la comunidad. El cafe es el combustible de un programador.</p>
+				<form action="https://www.paypal.com/donate" method="post" target="_top">
+					<input type="hidden" name="business" value="G7EH3M9A4TPRE" />
+					<input type="hidden" name="no_recurring" value="0" />
+					<input type="hidden" name="item_name" value="Codigo para y por la comunidad, si quieres donar. Puedes hacerlo." />
+					<input type="hidden" name="currency_code" value="USD" />
+					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+					<img alt="" border="0" src="https://www.paypal.com/en_GT/i/scr/pixel.gif" width="1" height="1" />
+				</form>
+			<br/>
             </div>
             <!-- End of Section Title -->
             <div class="card-deck mb-3 text-center">
                 <div class="price-box card mb-4 box-shadow">
                     <div class="card-header p-4">
-                        <h6 class="mb-0 text-orange font-weight-bold">1. EQUIPOS</h6>                        
+                        <h6 class="mb-0 text-orange font-weight-bold">1. EQUIPOS</h6>    
+						<br/>						
                         <p class="mb-0">Ingresa los equipos que compiten</p>
                     </div>
                     <div class="card-body p-4">
@@ -96,6 +145,8 @@
                 <div class="price-box card mb-4 box-shadow">
                     <div class="card-header p-4">
                         <h6 class="mb-0 text-cyan font-weight-bold">2. PARTICIPANTES</h6>
+						<br/>
+						<p class="mb-0">Agrega a los participantes <em>(Maximo 36 participantes)</em></p>
                         <br/>
                         
 						<div class="row">
@@ -133,15 +184,12 @@
 				</div>
                 <div id="divresults" class="price-box card mb-4 box-shadow">
                     <div class="card-header p-4">
-                        <h6 class="mb-0 text-red font-weight-bold">3. RESULTADOS</h6>
-                        
-                        
-						
-
+                        <h6 class="mb-0 text-red font-weight-bold">3. RESULTADOS</h6>                                               
                     </div>
                     <div class="card-body p-4">
                         
 						<div id ="messageTeams" class=\"alert alert-warning\"></div>
+						 <div id="loaderDiv"></div>
                         <p>
 							<div id="result">
 							<table id="myTableSort" name ="myTableSort" class="table table-striped"> 

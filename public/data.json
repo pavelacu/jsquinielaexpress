@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Burger King",
+      "symbol": "PROMERICA",
+      "icon": 0,
+      "iconColor": "Colors.orange",
+      "change": "Q24.50",
+      "changeValue": "Antes Q42.00",
+      "changeColor": "Colors.green",
+      "value": "Combo Whopper JR."
+    },
+    {
+      "name": "Anais",
+      "symbol": "BANRURAL",
+      "icon": 1,
+      "iconColor": "Colors.black",
+      "change": "Descuento",
+      "changeValue": "10%",
+      "changeColor": "Colors.green",
+      "value": "Ropa deportiva Mujer"
+    }
+]

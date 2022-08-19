@@ -43,6 +43,8 @@ function getListShuffle() {
 	}
 }
 
+
+
 function showDate(){
 	var label = document.getElementById("labelDate")
 	var now = new Date();
@@ -56,6 +58,19 @@ function cleanTable(){
 	var tableh = document.getElementById("myTableSort").getElementsByTagName('thead')[0];
 	tableh.innerHTML = "";
 }
+
+function cleanLoading(){
+	var table = document.getElementById("loaderDiv");		
+	table.innerHTML = "";	
+}
+
+function showLoading(){
+	var messageHtml = document.getElementById("loaderDiv")	
+	var textHtml = "<span class=\"loader\"> </span>";			
+	messageHtml.innerHTML = textHtml;
+	cleanLoading()
+}
+
 
 function showMessage(htmldiv, message){
 	var messageHtml = document.getElementById(htmldiv)	
@@ -155,6 +170,8 @@ function setHeadTable() {
   var visit = document.getElementById("visit").value;
   cleanMessage("messageTeams")
   if(local && visit){
+		
+		setTimeout(showLoading(), 30000);
 		var table = document.getElementById("myTableSort");
 		var header = table.createTHead();		
 		var row = header.insertRow(0);
